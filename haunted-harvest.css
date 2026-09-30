@@ -293,3 +293,65 @@ body {
   animation: drift 12s linear infinite;
   z-index: 6;
 }
+
+/* ========================================
+   Yunxue Wu - Flying Animations
+   ======================================== */
+
+/* Bats */
+.bat {
+  position: absolute;
+  left: -60px;
+  font-size: 28px;
+  z-index: 4;
+}
+
+.bat-one {
+  top: 90px;
+  animation: bat-fly 10s linear infinite;
+}
+
+.bat-two {
+  top: 145px;
+  font-size: 22px;
+  animation: bat-fly 14s linear 3s infinite;
+}
+
+@keyframes bat-fly {
+  0% {
+    transform: translateX(0) translateY(0);
+  }
+
+  50% {
+    transform: translateX(550px) translateY(-25px);
+  }
+
+  100% {
+    transform: translateX(1150px) translateY(10px);
+  }
+}
+
+/* Witch */
+.witch {
+  position: absolute;
+  top: 55px;
+  left: -100px;
+  font-size: 38px;
+  z-index: 4;
+  filter: drop-shadow(0 0 8px var(--candy-purple));
+  animation: witch-fly 16s linear infinite;
+}
+
+@keyframes witch-fly {
+  0% {
+    transform: translateX(0) translateY(15px);
+  }
+
+  50% {
+    transform: translateX(600px) translateY(-20px);
+  }
+
+  100% {
+    transform: translateX(1250px) translateY(10px);
+  }
+}
