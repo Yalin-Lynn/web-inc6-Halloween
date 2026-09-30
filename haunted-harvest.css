@@ -355,3 +355,54 @@ body {
     transform: translateX(1250px) translateY(10px);
   }
 }
+/* ========================================
+   Yunxue Wu - Character Animations
+   ======================================== */
+
+/* Trick-or-Treaters */
+.trick-or-treaters {
+  position: absolute;
+  left: -160px;
+  bottom: 75px;
+  font-size: 38px;
+  z-index: 5;
+  animation: trick-or-treat-walk 18s linear infinite;
+}
+
+@keyframes trick-or-treat-walk {
+  0% {
+    transform: translateX(0);
+  }
+
+  50% {
+    transform: translateX(550px);
+  }
+
+  100% {
+    transform: translateX(1200px);
+  }
+}
+
+/* Black Cat */
+.black-cat {
+  position: absolute;
+  left: -70px;
+  bottom: 68px;
+  font-size: 34px;
+  z-index: 5;
+  animation: cat-walk 12s linear 2s infinite;
+}
+
+@keyframes cat-walk {
+  0% {
+    transform: translateX(0);
+  }
+
+  50% {
+    transform: translateX(600px) translateY(-5px);
+  }
+
+  100% {
+    transform: translateX(1200px);
+  }
+}
