@@ -406,3 +406,25 @@ body {
     transform: translateX(1200px);
   }
 }
+/* ========================================
+   Yunxue Wu - Haunted Vehicle Animation
+   ======================================== */
+
+.hearse {
+  position: absolute;
+  right: -100px;
+  bottom: 55px;
+  font-size: 48px;
+  z-index: 5;
+  animation: hearse-drive 15s linear infinite;
+}
+
+@keyframes hearse-drive {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-1200px);
+  }
+}
