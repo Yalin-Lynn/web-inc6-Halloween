@@ -1,0 +1,241 @@
+/* Halloween Color Palette & Variables */
+:root {
+  --pumpkin: #ff7518;
+  --candy-purple: #5a189a;
+  --spider-black: #1a1423;
+  --slime-green: #8ac926;
+  --ghost-white: #f6f2f8;
+  --candle-glow: #ffd60a;
+}
+
+/* Reduced Motion Preferences */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
+
+/* CSS-only scene switching; wrap scenes in .scenes */
+.scene { display: none; }
+
+.scenes:not(:has(.scene:target)) .scene:first-child {
+  display: block;
+}
+
+.scene:target {
+  display: block;
+}
+
+/* Glowing jack-o'-lantern flicker */
+@keyframes flicker {
+  0%, 100% {
+    opacity: 1;
+    filter: drop-shadow(0 0 12px var(--pumpkin));
+  }
+
+  50% {
+    opacity: 0.75;
+  }
+}
+
+.pumpkin-glow {
+  animation: flicker 2.5s ease-in-out infinite;
+}
+
+/* Fog drift */
+@keyframes drift {
+  from {
+    transform: translateX(-100%);
+  }
+
+  to {
+    transform: translateX(100%);
+  }
+}
+/* ========================================
+   Yalin Zhang - Main Scene and Layout
+   ======================================== */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: var(--spider-black);
+  color: var(--ghost-white);
+}
+
+.site-header {
+  text-align: center;
+  padding: 24px 15px;
+  background-color: #0d0716;
+}
+
+.site-header h1 {
+  margin: 0;
+  color: var(--pumpkin);
+  font-size: 2.5rem;
+}
+
+.site-header p {
+  margin: 8px 0 0;
+}
+
+.scene-title {
+  text-align: center;
+  color: var(--candle-glow);
+}
+
+.scene-stage {
+  position: relative;
+  width: 90%;
+  max-width: 1000px;
+  height: 500px;
+  margin: 20px auto;
+  overflow: hidden;
+  border: 3px solid var(--candy-purple);
+  border-radius: 16px;
+
+  background: linear-gradient(
+    to bottom,
+    #080312 0%,
+    #1b1030 55%,
+    #30183f 100%
+  );
+}
+
+/* Moon */
+.moon {
+  position: absolute;
+  top: 35px;
+  right: 70px;
+  font-size: 75px;
+  filter: drop-shadow(0 0 18px var(--candle-glow));
+  z-index: 2;
+}
+
+/* Haunted House */
+.haunted-house {
+  position: absolute;
+  right: 90px;
+  bottom: 70px;
+  font-size: 145px;
+  z-index: 3;
+}
+
+/* Pumpkins */
+.pumpkin {
+  position: absolute;
+  z-index: 5;
+}
+
+.pumpkin-one {
+  left: 70px;
+  bottom: 65px;
+  font-size: 52px;
+}
+
+.pumpkin-two {
+  left: 130px;
+  bottom: 62px;
+  font-size: 40px;
+}
+
+.pumpkin-three {
+  right: 40px;
+  bottom: 62px;
+  font-size: 34px;
+}
+
+/* Ground */
+.ground {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 80px;
+  background-color: #100914;
+  border-top: 3px solid #301c24;
+  z-index: 1;
+}
+
+/* Footer */
+.site-footer {
+  text-align: center;
+  padding: 18px;
+  background-color: #0d0716;
+}
+/* ========================================
+   Yalin Zhang - Scene Details
+   ======================================== */
+
+/* Stars in the night sky */
+.scene-stage::before {
+  content: "✦   ·   ✧      ·    ✦       ·   ✧    ·      ✦";
+  position: absolute;
+  top: 20px;
+  left: 30px;
+  width: 70%;
+  color: var(--ghost-white);
+  font-size: 18px;
+  letter-spacing: 18px;
+  opacity: 0.7;
+  z-index: 1;
+}
+
+/* Soft moon glow */
+.moon {
+  animation: moon-glow 4s ease-in-out infinite;
+}
+
+@keyframes moon-glow {
+  0%, 100% {
+    filter: drop-shadow(0 0 15px var(--candle-glow));
+  }
+
+  50% {
+    filter: drop-shadow(0 0 30px var(--candle-glow));
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 700px) {
+  .site-header h1 {
+    font-size: 1.8rem;
+  }
+
+  .scene-stage {
+    width: 95%;
+    height: 400px;
+  }
+
+  .moon {
+    top: 25px;
+    right: 30px;
+    font-size: 55px;
+  }
+
+  .haunted-house {
+    right: 30px;
+    bottom: 65px;
+    font-size: 105px;
+  }
+
+  .pumpkin-one {
+    left: 30px;
+    font-size: 40px;
+  }
+
+  .pumpkin-two {
+    left: 80px;
+    font-size: 32px;
+  }
+
+  .pumpkin-three {
+    right: 20px;
+    font-size: 28px;
+  }
+}
